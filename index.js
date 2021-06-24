@@ -86,9 +86,9 @@ async function drawImage(back, img1, img2, img3){
   Promise.all(jimps).then(data => {
     return Promise.all(jimps)
   }).then(data => {
-    data[0].composite(data[1],1070,30);
-    data[0].composite(data[2],1160,30);
-    data[0].composite(data[3],1250,30);
+    data[0].composite(data[1],1070,50);
+    data[0].composite(data[2],1160,50);
+    data[0].composite(data[3],1250,50);
 
     data[0].write('test.png', function(){
       console.log("done");
