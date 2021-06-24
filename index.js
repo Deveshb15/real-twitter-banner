@@ -95,13 +95,13 @@ async function drawImage(back, img1, img2, img3){
     })
   })
 
-  const base64 = fs.readFileSync('./test.png', { encoding: 'base64' });
+  const base64 = await fs.readFileSync('test.png', { encoding: 'base64' });
   // console.log(base64);
 
-  // twitterClient.accountsAndUsers.accountUpdateProfileBanner('./test.png')
+  await twitterClient.accountsAndUsers.accountUpdateProfileBanner({banner: base64})
 }
 
 pollIt();
-// setInterval(() => {
-//   pollIt();
-// }, 6000);
+setInterval(() => {
+  pollIt();
+}, 6000);
