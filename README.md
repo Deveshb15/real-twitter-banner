@@ -20,7 +20,7 @@ const twitterClient = new client.TwitterClient({
 ```
 
 Lastly, change the default banner `1500x500.png`. Make sure it's a `png` (as in the mimetype, not just the file extension).
-![g](https://github.com/Deveshb15/real-twitter-banner/blob/master/base.png?raw=true)
+![g](https://github.com/Deveshb15/real-twitter-banner/blob/master/1500x500.png?raw=true)
 
 ## Run the script
 
