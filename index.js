@@ -104,9 +104,9 @@ async function start() {
     // Draw the image and Post it
     await drawImage('1500x500.png' ,`${name}-1.png`,`${name}-2.png`,`${name}-3.png`);
   }
-  async function deleteImg() {
+  async function deleteImages() {
     try{
-      console.log('removing', `${name}{,1,2}.png`);
+      console.log('removing', `${name}{1,2,3}.png`);
       await fs.unlinkSync(`${name}-1.png`);
       await fs.unlinkSync(`${name}-2.png`);
       await fs.unlinkSync(`${name}-3.png`);
@@ -121,7 +121,7 @@ async function start() {
   if (remaining > 30000) {
     await drawit();
   }
-  await deleteImg();
+  await deleteImages();
 
 })();
 
