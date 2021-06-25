@@ -119,6 +119,15 @@ async function start() {
     drawTimer = setTimeout(drawit, 30000 - remaining);
   }
 
+  try {
+    console.log('removing', `${name}{,1,2}.png`);
+    fs.unlinkSync(`${name}-1.png`);
+    fs.unlinkSync(`${name}-2.png`);
+    fs.unlinkSync(`${name}-3.png`);
+  } catch (e) {
+    console.log(e);
+  }
+
   })();
 
 }
