@@ -54,6 +54,6 @@ Summary:
 
 The delay between follow and banner update is between 6s to 15s.
 
-### Feel free to contribute to this project, would love to have you as a contributor. Just fork the project, create an issue, and then create a pull request!
+**Feel free to contribute to this project, would love to have you as a contributor. Just fork the project, create an issue, and then create a pull request!**
 
 P.S. Special thanks to [Tony Dinh](https://twitter.com/tdinh_me), this project is inspired by his idea of emojiheader!
