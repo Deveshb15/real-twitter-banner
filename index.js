@@ -98,14 +98,14 @@ async function start() {
 
     const name = Math.random();  //avoid caching for same file names
 
-    await download_image(image_url[0], `${name}-1.png`)
-    await download_image(image_url[1], `${name}-2.png`)
-    await download_image(image_url[2], `${name}-3.png`)
+    await download_image(image_url[0], `img1.png`)
+    await download_image(image_url[1], `img2.png`)
+    await download_image(image_url[2], `img3.png`)
 
   async function drawit() {
     lastDrawImage = Date.now();
     // Draw the image and Post it
-    await drawImage('base.png' ,`${name}-1.png`,`${name}-2.png`,`${name}-3.png`);
+    await drawImage('base.png' ,`img1.png`,`img2.png`,`img3.png`);
   }
   const remaining = Date.now() - lastDrawImage;
 
@@ -117,15 +117,6 @@ async function start() {
     console.log('set timer', 30000 - remaining);
     clearTimeout(drawTimer);
     drawTimer = setTimeout(drawit, 30000 - remaining);
-  }
-
-  try {
-    console.log('removing', `${name}{,1,2}.png`);
-    fs.unlinkSync(`${name}-1.png`);
-    fs.unlinkSync(`${name}-2.png`);
-    fs.unlinkSync(`${name}-3.png`);
-  } catch (e) {
-    console.log(e);
   }
 
   })();
