@@ -46,40 +46,6 @@ axios({
     }),
 );
 
-// function to draw image and post it
-async function drawImage(back, img1, img2, img3){
-  //Creating an array so it becomes easier to Promise.all instead of one at a time
-  //Would love to see if you have any other approach to this, can't think of anything else
-  let imgArr = [back, img1, img2, img3];
-
-  let jimps = [];
-
-  //Read the image in jimp and push it to jimps array 
-  imgArr.forEach(image => jimps.push(jimp.read(image)));
-
-  // fetch all the images
-  Promise.all(jimps).then(data => {
-    return Promise.all(jimps)
-  }).then(data => {
-    // composite the images on one another
-    data[0].composite(data[1],1070,50); //Your banner is 1500x500px, so change this pixels accordingly
-    data[0].composite(data[2],1160,50); //place the images wherever you want on the banner
-    data[0].composite(data[3],1250,50); //experiment with it or DM me on Twitter @Deveshb15 if you want any help
-
-    // Write the image and save it
-    data[0].write('1500x500.png', function(){
-      console.log("done");
-    })
-  })
-
-  // encode to base64 to post the image
-  const base64 = await fs.readFileSync('1500x500.png', { encoding: 'base64' });
-  // console.log(base64);
-
-  // Update the banner
-  await twitterClient.accountsAndUsers.accountUpdateProfileBanner({banner: base64})
-}
-
 async function start() {
   const params = {
     screen_name: TWITTER_HANDLE, //name of twitter account
@@ -118,6 +84,40 @@ async function start() {
 
   })();
 
+}
+
+// function to draw image and post it
+async function drawImage(back, img1, img2, img3){
+  //Creating an array so it becomes easier to Promise.all instead of one at a time
+  //Would love to see if you have any other approach to this, can't think of anything else
+  let imgArr = [back, img1, img2, img3];
+
+  let jimps = [];
+
+  //Read the image in jimp and push it to jimps array 
+  imgArr.forEach(image => jimps.push(jimp.read(image)));
+
+  // fetch all the images
+  Promise.all(jimps).then(data => {
+    return Promise.all(jimps)
+  }).then(data => {
+    // composite the images on one another
+    data[0].composite(data[1],1070,50); //Your banner is 1500x500px, so change this pixels accordingly
+    data[0].composite(data[2],1160,50); //place the images wherever you want on the banner
+    data[0].composite(data[3],1250,50); //experiment with it or DM me on Twitter @Deveshb15 if you want any help
+
+    // Write the image and save it
+    data[0].write('1500x500.png', function(){
+      console.log("done");
+    })
+  })
+
+  // encode to base64 to post the image
+  const base64 = await fs.readFileSync('1500x500.png', { encoding: 'base64' });
+  // console.log(base64);
+
+  // Update the banner
+  await twitterClient.accountsAndUsers.accountUpdateProfileBanner({banner: base64})
 }
 
 // start everything
