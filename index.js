@@ -67,13 +67,13 @@ async function drawImage(back, img1, img2, img3){
     data[0].composite(data[3],1250,50); //experiment with it or DM me on Twitter @Deveshb15 if you want any help
 
     // Write the image and save it
-    data[0].write('base.png', function(){
+    data[0].write('1500x500.png', function(){
       console.log("done");
     })
   })
 
   // encode to base64 to post the image
-  const base64 = await fs.readFileSync('base.png', { encoding: 'base64' });
+  const base64 = await fs.readFileSync('1500x500.png', { encoding: 'base64' });
   // console.log(base64);
 
   // Update the banner
@@ -95,9 +95,6 @@ async function start() {
   
   (async () => {
     //download the image
-
-    const name = Math.random();  //avoid caching for same file names
-
     await download_image(image_url[0], `img1.png`)
     await download_image(image_url[1], `img2.png`)
     await download_image(image_url[2], `img3.png`)
@@ -105,7 +102,7 @@ async function start() {
   async function drawit() {
     lastDrawImage = Date.now();
     // Draw the image and Post it
-    await drawImage('base.png' ,`img1.png`,`img2.png`,`img3.png`);
+    await drawImage('1500x500.png' ,`img1.png`,`img2.png`,`img3.png`);
   }
   const remaining = Date.now() - lastDrawImage;
 
