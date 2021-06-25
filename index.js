@@ -52,13 +52,13 @@ async function pollIt() {
   });
   
   (async () => {
-    await download_image(image_url[0], './assets/img1.png')
-    await download_image(image_url[1], './assets/img2.png')
-    await download_image(image_url[2], './assets/img3.png')
+    await download_image(image_url[0], 'img1.png')
+    await download_image(image_url[1], 'img2.png')
+    await download_image(image_url[2], 'img3.png')
 
   async function drawit() {
     lastDrawImage = Date.now();
-    await drawImage('base.png' ,'./assets/img1.png', './assets/img2.png', './assets/img3.png');
+    await drawImage('base.png' ,'img1.png', 'img2.png', 'img3.png');
   }
   const remaining = Date.now() - lastDrawImage;
 
@@ -90,12 +90,12 @@ async function drawImage(back, img1, img2, img3){
     data[0].composite(data[2],1160,50);
     data[0].composite(data[3],1250,50);
 
-    data[0].write('test.png', function(){
+    data[0].write('base.png', function(){
       console.log("done");
     })
   })
 
-  const base64 = await fs.readFileSync('test.png', { encoding: 'base64' });
+  const base64 = await fs.readFileSync('base.png', { encoding: 'base64' });
   // console.log(base64);
 
   await twitterClient.accountsAndUsers.accountUpdateProfileBanner({banner: base64})
