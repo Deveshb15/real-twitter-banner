@@ -104,6 +104,14 @@ async function start() {
     // Draw the image and Post it
     await drawImage('1500x500.png' ,`${name}-1.png`,`${name}-2.png`,`${name}-3.png`);
   }
+  const remaining = Date.now() - lastDrawImage;
+  
+  // Avoid hitting rate limit when update banner
+  // 30 requests per 15 mins meaning 1 request per 30 secs
+  if (remaining > 30000) {
+    await drawit();
+  }
+
   async function deleteImages() {
     try{
       console.log('removing', `${name}{1,2,3}.png`);
@@ -114,13 +122,7 @@ async function start() {
       console.log(e);
     }
   }
-  const remaining = Date.now() - lastDrawImage;
-  
-  // Avoid hitting rate limit when update banner
-  // 30 requests per 15 mins meaning 1 request per 30 secs
-  if (remaining > 30000) {
-    await drawit();
-  }
+
   await deleteImages();
 
 })();
