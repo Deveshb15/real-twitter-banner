@@ -11,10 +11,10 @@ Just fill in your API keys which you'll need to apply for a [Twitter developer a
 ```
 const TWITTER_HANDLE = 'Deveshb15'
 const twitterClient = new client.TwitterClient({
-  apiKey: "YOUR API KEY"
-  apiSecret: "YOUR API SECRET" 
-  accessToken: "YOUR CONSUMER KEY"
-  accessTokenSecret: "YOUR CONSUMER SECRET"
+  apiKey: "YOUR CONSUMER API KEY"
+  apiSecret: "YOUR CONSUMER API SECRET" 
+  accessToken: "YOUR ACCESS TOKEN"
+  accessTokenSecret: "YOUR ACCESS TOKEN SECRET"
 });
 
 ```
