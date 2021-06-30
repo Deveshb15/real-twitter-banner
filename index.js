@@ -8,10 +8,10 @@ const jimp = require('jimp');
 // Your Twitter account
 const TWITTER_HANDLE = 'Deveshb15'
 const twitterClient = new client.TwitterClient({
-  apiKey: process.env.API_KEY,                      //YOUR API KEY
-  apiSecret: process.env.API_SECRET,                //YOUR API SECRET 
-  accessToken: process.env.CONSUMER_KEY,            //YOUR CONSUMER KEY
-  accessTokenSecret: process.env.CONSUMER_SECRET    //YOUR CONSUMER SECRET
+  apiKey: process.env.API_KEY,                      //YOUR CONSUMER API KEY
+  apiSecret: process.env.API_SECRET,                //YOUR CONSUMER API SECRET 
+  accessToken: process.env.ACCESS_TOKEN,            //YOUR ACCESS TOKEN
+  accessTokenSecret: process.env.ACCESS_TOKEN_SECRET    //YOUR ACCESS TOKEN SECRET
 });
 
 // Test the twitter-api-client
