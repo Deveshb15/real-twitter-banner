@@ -126,7 +126,6 @@ async function start() {
   await deleteImages();
 
 })();
-
 }
 
 // start everything
